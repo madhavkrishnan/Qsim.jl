@@ -1,5 +1,7 @@
 # Single qubit gates
 
+const id = sparse([1 0; 0 1])
+
 const H = sqrt(1/2) * sparse([1 1; 1 -1])
 
 const X = sparse([0 1 ; 1 0])
