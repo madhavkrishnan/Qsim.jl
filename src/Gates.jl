@@ -28,7 +28,7 @@ Returns a qmax qubit operator with the provided gate acting on a single qubit.
 function qbit_op(gate, qbit::Integer, qmax::Integer)
 
 	# Check that gate is a single qubit operator
-	size(gate) == (2,2) || error("Input gate must be a single qubit operator.")
+	# size(gate) == (2,2) || error("Input gate must be a single qubit operator.")
 	1 <= qbit <= qmax || error("Qubit out of bounds.")
 
 	if(qmax==1)

@@ -24,18 +24,23 @@ function del_qbit(state, qbit::Integer, qbitstate)
 	insert!(op_vec, qbit, cs)
 
 	locs = findall(!iszero, kron(op_vec...))
+	
 
-	return state[locs] / qbitstate[qidx]
+
+	state =  state[locs] / qbitstate[qidx]
+
+	# Renormalise
+	state = state / sqrt(state' * state)
 
 
 end
 
 """
-	function measure(state, qbit::Integer, outcome)
+	function measure(state, qbit::Integer, qout; delete=false)
 
-
+Project qbit into state qout and return the state. Will delete measured qubit if delete=true.
 """
-function measure(state, qbit::Integer, qout)
+function measure(state, qbit::Integer, qout;  delete=false)
 	
 	# Find state dim
 	qmax = state |> length |> log2 |> Int
@@ -47,8 +52,10 @@ function measure(state, qbit::Integer, qout)
 	# Measure
 	state = qbit_op(pqout, qbit, qmax) * state
 	
-	# Delete measured qubit
-	state = del_qbit(state, qbit, qout)
+	if delete
+		# Delete measured qubit
+		state = del_qbit(state, qbit, qout)
+	end
 
 	return state
 end
