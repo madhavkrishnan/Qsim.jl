@@ -1,18 +1,47 @@
 # Single qubit gates
 
-const id = sparse([1 0; 0 1])
+const id = sparse([1 0;
+				   0 1])
 
-const H = sqrt(1/2) * sparse([1 1; 1 -1])
+const H = sqrt(1/2) * sparse([1 1;
+							  1 -1])
 
-const X = sparse([0 1 ; 1 0])
+const X = sparse([0 1 ;
+				  1 0])
 
-const Z = sparse([1 0 ; 0 -1])
+const Z = sparse([1 0 ;
+				  0 -1])
 
 const Y = 1im * X * Z
 
-const S = sparse([1 0 ; 0  1im])
+const S = sparse([1 0 ;
+				  0  1im])
 
-const T = sparse([1 0; 0 exp(1im * pi / 4)])
+const T = sparse([1 0;
+				  0 exp(1im * pi / 4)])
+
+# Two qubit gates
+
+const CNOT = sparse([1 0 0 0;
+					 0 1 0 0;
+					 0 0 0 1;
+					 0 0 1 0 ])
+
+const CZ = sparse([1 0 0 0;
+				   0 1 0 0;
+				   0 0 1 0;
+				   0 0 0 -1 ])
+
+# Three qubit gates
+
+const Toffoli = sparse([1 0 0 0 0 0 0 0;
+						0 1 0 0 0 0 0 0;
+						0 0 1 0 0 0 0 0;
+						0 0 0 1 0 0 0 0;
+						0 0 0 0 1 0 0 0;
+						0 0 0 0 0 1 0 0;
+						0 0 0 0 0 0 0 1;
+						0 0 0 0 0 0 1 0])
 
 # Projection operators
 
