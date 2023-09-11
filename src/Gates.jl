@@ -43,6 +43,16 @@ const Toffoli = sparse([1 0 0 0 0 0 0 0;
 						0 0 0 0 0 0 0 1;
 						0 0 0 0 0 0 1 0])
 
+const CCZ = sparse([1 0 0 0 0 0 0 0;
+					0 1 0 0 0 0 0 0;
+					0 0 1 0 0 0 0 0;
+					0 0 0 1 0 0 0 0;
+					0 0 0 0 1 0 0 0;
+					0 0 0 0 0 1 0 0;
+					0 0 0 0 0 0 1 0;
+					0 0 0 0 0 0 0 -1])
+
+
 # Projection operators
 
 const pz0 = sparse([1  0; 0 0])
