@@ -48,7 +48,7 @@ end
 
 Return state with the qbit removed. Will only work correctly when qbit is not entangled with the rest of the state!
 """
-function del_qbit(state, qbit::Integer, qbitstate)
+function del_qbit(state, qbit, qbitstate)
 
 	qseq = [(qbit, qbitstate)]
 
@@ -163,7 +163,7 @@ end
 Project qbit into state qout and return the state. Will delete measured qubit if delete=true.
 
 """
-function measure(state, qbit::Integer, qout;  delete=false)
+function measure(state, qbit, qout;  delete=false)
 	
 	mseq = [(qbit, qout)]
 
